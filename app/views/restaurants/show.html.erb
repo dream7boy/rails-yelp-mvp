@@ -1,13 +1,16 @@
-<h1><%= @restaurant.name %></h1>
-<p><%= @restaurant.address %></p>
-<p><%= @restaurant.phone_number %></p>
-<p><%= @restaurant.category %></p>
+<div class="container">
+  <h1><%= @restaurant.name %></h1>
+  <p><%= @restaurant.address %></p>
+  <p><%= @restaurant.phone_number %></p>
+  <p><%= @restaurant.category %></p>
 
-<% @restaurant.reviews.each do |review| %>
-<p>-------------------------</p>
-<p>content: <%= review.content %></p>
-<p>rating: <%= review.rating %></p>
-<% end %>
+  <% @restaurant.reviews.each do |review| %>
+  <p>-------------------------</p>
+  <p>content: <%= review.content %></p>
+  <p>rating: <%= review.rating %></p>
+  <% end %>
 
-<%= link_to "Make a New Review", new_restaurant_review_path(@restaurant) %>
-<%= link_to "Back to the lists", restaurants_path %>
+  <%= render "reviews/form" %>
+
+  <%= link_to "Back to the lists", restaurants_path, class: "btn btn-primary" %>
+</div>

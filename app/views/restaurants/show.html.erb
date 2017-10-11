@@ -4,11 +4,33 @@
   <p><%= @restaurant.phone_number %></p>
   <p><%= @restaurant.category %></p>
 
-  <% @restaurant.reviews.each do |review| %>
+<!--   <% @restaurant.reviews.each do |review| %>
   <p>-------------------------</p>
   <p>content: <%= review.content %></p>
   <p>rating: <%= review.rating %></p>
-  <% end %>
+  <% end %> -->
+
+  <!-- Media middle -->
+<% @restaurant.reviews.each do |review| %>
+  <div class="media">
+    <div class="media-left media-middle">
+      <img src="https://kitt.lewagon.com/placeholder/users/ssaunier" class="media-object img-circle" style="width:70px">
+    </div>
+    <div class="media-body">
+      <h4 class="media-heading">
+        <p class="rating">
+          <% review.rating.times do %>
+            <i class="fa fa-star" style="color: #ffb400"></i>
+          <% end %>
+          <% (5 - review.rating).times do %>
+            <i class="fa fa-star" style="color: #cacccd"></i>
+          <% end %>
+        </p>
+      </h4>
+      <p><%= review.content %></p>
+    </div>
+  </div>
+<% end %>
 
   <%= render "reviews/form" %>
 

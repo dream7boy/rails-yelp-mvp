@@ -1,8 +1,16 @@
-<h1>All Restaurants</h1>
-<ul>
-  <% @restaurants.each do |restaurant| %>
-    <li><%= link_to restaurant.name, restaurant_path(restaurant) %></li>
-  <% end %>
-</ul>
+<!-- <div class="container">
+  <h1>All Restaurants</h1>
+  <ul>
+    <% @restaurants.each do |restaurant| %>
+      <li><%= link_to restaurant.name, restaurant_path(restaurant) %></li>
+    <% end %>
+  </ul>
+</div>
+ -->
 
-
+<div class="container" id="cards">
+  <h2 class="text-center">All Restaurants</h2>
+    <div class="row">
+      <%= render "components/card" %>
+    </div>
+</div>
